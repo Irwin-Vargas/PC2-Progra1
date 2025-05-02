@@ -3,6 +3,8 @@ using practica2.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// Esto lo hice en la pregunta 1, Lo conecte directamente a RENDER para ahorrar tiempo. GRACIAS (=
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
