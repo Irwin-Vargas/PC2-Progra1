@@ -36,7 +36,7 @@ namespace practica2.Controllers
             {
                 MascotaId = mascotaId,
                 AdoptanteId = adoptanteId,
-                FechaAdopcion = DateTime.Now,
+                FechaAdopcion = DateTime.UtcNow,
             };
             var mascota = _context.Mascotas.Find(mascotaId);
             if (mascota != null) mascota.EstaAdoptada = true;
@@ -52,7 +52,7 @@ namespace practica2.Controllers
             .Include(a => a.Mascota)
             .Include(a => a.Adoptante)
             .ToList();
-            
+
             return View(adopciones);
         }
 
