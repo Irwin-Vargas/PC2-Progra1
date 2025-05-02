@@ -1,0 +1,43 @@
+@model List<practica2.Models.Adopcion>
+
+@{
+    ViewData["Title"] = "Listado de Adopciones";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg rounded">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Listado de Adopciones</h4>
+        </div>
+        <div class="card-body">
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    No hay adopciones registradas.
+                </div>
+            }
+            else
+            {
+                <table class="table table-hover table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mascota</th>
+                            <th>Adoptante</th>
+                            <th>Fecha de Adopción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var adopcion in Model)
+                        {
+                            <tr>
+                                <td>@adopcion.Mascota.Nombre</td>
+                                <td>@adopcion.Adoptante.Nombre</td>
+                                <td>@adopcion.FechaAdopcion.ToShortDateString()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
