@@ -3,7 +3,7 @@ services:
     name: adopcion-app
     env: dotnet
     plan: free
-    branch: deploy/render
+    branch: deploy/rende
     buildCommand: dotnet publish -c Release -o out
     startCommand: dotnet out/practica2.dll
     workingDir: practica2
