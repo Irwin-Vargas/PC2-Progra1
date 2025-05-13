@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Asignar Mascota";
+    var mascotas = ViewBag.Mascotas as List<practica2.Models.Mascota>;
+    var adoptantes = ViewBag.Adoptantes as List<practica2.Models.Adoptante>;
+}
+<div class="container mt-5">
+    <h2>Asignar Mascota a Adoptante</h2>
+
+    <form method="post" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label class="form-label">Mascota</label>
+            <select name="mascotaId" class="form-select" required>
+                @foreach (var mascota in mascotas)
+                {
+                    <option value="@mascota.Id">@mascota.Nombre (@mascota.Tipo)</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Adoptante</label>
+            <select name="adoptanteId" class="form-select" required>
+                @foreach (var adoptante in adoptantes)
+                {
+                    <option value="@adoptante.Id">@adoptante.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar Adopción</button>
+    </form>
+</div>

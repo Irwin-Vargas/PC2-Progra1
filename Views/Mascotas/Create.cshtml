@@ -1,0 +1,44 @@
+@model practica2.Models.Mascota
+
+@{
+    ViewData["Title"] = "Registrar Mascota";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Registrar Nueva Mascota</h2>
+
+    <form asp-action="Create" method="post" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label asp-for="Nombre" class="form-label">Nombre</label>
+            <input asp-for="Nombre" class="form-control" required />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Edad" class="form-label">Edad</label>
+            <input asp-for="Edad" class="form-control" type="number" min="0" required />
+            <span asp-validation-for="Edad" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tipo" class="form-label">Tipo (Perro, Gato, etc.)</label>
+            <input asp-for="Tipo" class="form-control" required />
+            <span asp-validation-for="Tipo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EstaAdoptada" class="form-label">Estado de adopción</label>
+            <select asp-for="EstaAdoptada" class="form-select">
+                <option value="false">Disponible</option>
+                <option value="true">Adoptada</option>
+            </select>
+            <span asp-validation-for="EstaAdoptada" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Mascota</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

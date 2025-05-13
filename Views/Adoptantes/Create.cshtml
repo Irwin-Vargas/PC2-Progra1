@@ -1,0 +1,24 @@
+@model practica2.Models.Adoptante
+
+<div class="container mt-5">
+    <div class="card shadow rounded">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Registrar Nuevo Adoptante</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label">Nombre completo</label>
+                    <input asp-for="Nombre" class="form-control" required />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Registrar Adoptante</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
